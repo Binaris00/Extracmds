@@ -107,6 +107,15 @@ commands.extracmds.tagrod.tooltip.loot=Loot: %s
 commands.extracmds.tagrod.tooltip.count=×%s
 commands.extracmds.tagrod.tooltip.chance=(Chance: %s%%)
 
+commands.extracmds.imbue.usage=/imbue add|remove <effect> [duration] [amplifier] [showParticles] [showTooltip]|[index]
+commands.extracmds.imbue.cleared=All imbuement effects removed.
+commands.extracmds.imbue.invalid_potion=Invalid potion effect name.
+commands.extracmds.imbue.invalid_amplifier=Invalid amplifier value. Must be between 0 and 255.
+commands.extracmds.imbue.empty=This item has no imbuement effects to remove.
+commands.extracmds.imbue.invalid_index=Invalid index for imbuement list.
+commands.extracmds.imbue.removed=Imbuement effect #%s removed.
+commands.extracmds.imbue.applied=Added imbuement: %s
+
 commands.extracmds.book.usage=/book <seal|unseal|title|author|generation|enchant|unenchant> <...>
 
 commands.extracmds.book.usage.seal=/book seal
