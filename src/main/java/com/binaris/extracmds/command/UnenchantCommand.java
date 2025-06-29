@@ -17,7 +17,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-// Silly warnings... o-o
 @SuppressWarnings("NullableProblems")
 public class UnenchantCommand extends CommandBase {
 
@@ -49,6 +48,9 @@ public class UnenchantCommand extends CommandBase {
             NBTTagCompound tag = itemStack.getTagCompound();
             if (tag != null) {
                 tag.removeTag("ench");
+                if (tag.hasNoTags()) {
+                    itemStack.setTagCompound(null);
+                }
             }
             notifyCommandListener(sender, this, "commands.extracmds.unenchant.remove");
         } else {
@@ -60,14 +62,14 @@ public class UnenchantCommand extends CommandBase {
             }
 
             boolean found = false;
-            for (int i = 0; i < enchantments.tagCount(); i++) {
+
+            for (int i = enchantments.tagCount() - 1; i >= 0; i--) {
                 NBTTagCompound enchantmentCompound = enchantments.getCompoundTagAt(i);
                 int enchantmentId = enchantmentCompound.getShort("id");
 
                 if (Enchantment.getEnchantmentByID(enchantmentId) == enchantment) {
                     enchantments.removeTag(i);
                     found = true;
-                    break;
                 }
             }
 
@@ -79,6 +81,9 @@ public class UnenchantCommand extends CommandBase {
                 NBTTagCompound tag = itemStack.getTagCompound();
                 if (tag != null) {
                     tag.removeTag("ench");
+                    if (tag.hasNoTags()) {
+                        itemStack.setTagCompound(null);
+                    }
                 }
             }
 
@@ -131,4 +136,3 @@ public class UnenchantCommand extends CommandBase {
         return Collections.emptyList();
     }
 }
-

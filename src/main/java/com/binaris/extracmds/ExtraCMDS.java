@@ -14,7 +14,7 @@ import org.apache.logging.log4j.Logger;
 public class ExtraCMDS {
     public static final String MODID = "extracmds";
     public static final String NAME = "ExtraCMDS";
-    public static final String VERSION = "1.1.6-1";
+    public static final String VERSION = "1.2.0";
 
     public static final boolean WIZARDRYUTILS_LOADED = Loader.isModLoaded("wizardryutils");
 
@@ -48,5 +48,15 @@ public class ExtraCMDS {
         event.registerServerCommand(new UnenchantCommand());
         event.registerServerCommand(new RemoveLoreCommand());
         event.registerServerCommand(new RemoveAttributeCommand());
+        event.registerServerCommand(new UnbreakableCommand());
+        event.registerServerCommand(new SoarCommand());
+        event.registerServerCommand(new BookCommand());
+        event.registerServerCommand(new GlowCommand());
+        event.registerServerCommand(new UnglowCommand());
+        event.registerServerCommand(new PeekCommand());
+        event.registerServerCommand(new XPBottleCommand());
+        event.registerServerCommand(new TagRodCommand());
+        event.registerServerCommand(new ImbueCommand());
     }
 }
+

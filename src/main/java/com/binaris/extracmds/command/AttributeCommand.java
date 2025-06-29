@@ -1,7 +1,6 @@
 package com.binaris.extracmds.command;
 
 import com.binaris.extracmds.CommandUtil;
-import com.binaris.extracmds.ExtraCMDS;
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.CommandException;
 import net.minecraft.command.ICommandSender;
@@ -15,15 +14,12 @@ import net.minecraft.nbt.NBTTagList;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.ITextComponent;
-import net.minecraft.util.text.TextComponentString;
 import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.util.text.TextFormatting;
 
 import javax.annotation.Nullable;
 import java.util.*;
 
-// Silly warnings... o-o
-@SuppressWarnings("NullableProblems")
 public class AttributeCommand extends CommandBase {
     private static final HashMap<String, UUID> attributeUUIDs = new HashMap<>();
 
@@ -49,7 +45,7 @@ public class AttributeCommand extends CommandBase {
         attributeUUIDs.put(SharedMonsterAttributes.MOVEMENT_SPEED.getName(), UUID.fromString("A7E29D4B-4E2C-4A90-AE8E-A7CD9A4B9B8A"));
 
         CommandUtil.wizardryUtilAttributes(attributeUUIDs);
-        CommandUtil.twilightForestAttributes(attributeUUIDs);
+        CommandUtil.forgeAttributes(attributeUUIDs);
     }
 
     @Override
@@ -65,7 +61,7 @@ public class AttributeCommand extends CommandBase {
     @Override
     public void execute(MinecraftServer server, ICommandSender sender, String[] args) throws CommandException {
         if (args.length < 3 || args.length > 4) {
-            throw new CommandException("commands.extracmds.usage.error", String.valueOf(new TextComponentTranslation(getUsage(sender))));
+            throw new CommandException("commands.extracmds.usage.error", new Object[]{new TextComponentTranslation(getUsage(sender))});
         }
 
         EntityPlayerMP player = getCommandSenderAsPlayer(sender);
